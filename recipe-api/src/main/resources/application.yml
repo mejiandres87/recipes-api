@@ -1,0 +1,12 @@
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://${MYSQK_HOST:localhost}:3306/recipes_api
+    username: recipes_app
+    password: password
+    driver-class-name: com.mysqlcj.jdbc.Driver
+
