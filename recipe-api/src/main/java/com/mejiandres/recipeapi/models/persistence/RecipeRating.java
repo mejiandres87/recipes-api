@@ -1,35 +1,35 @@
 package com.mejiandres.recipeapi.models.persistence;
 
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class RecipeRating {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
-  private String username;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
-  private String email;
+  @ManyToOne
+  @JoinColumn(name = "recipe_id")
+  private Recipe recipe;
 
-  private String password;
-
-  @OneToMany(mappedBy = "user")
-  private Set<RecipeRating> ratings;
+  private Integer rating;
 
 }

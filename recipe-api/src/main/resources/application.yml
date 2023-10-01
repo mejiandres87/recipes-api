@@ -2,11 +2,11 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   datasource:
     url: jdbc:mysql://${MYSQK_HOST:localhost}:3306/recipes_api
     username: recipes_app
     password: password
-    driver-class-name: com.mysqlcj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 

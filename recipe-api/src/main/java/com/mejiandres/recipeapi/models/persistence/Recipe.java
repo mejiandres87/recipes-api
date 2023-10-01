@@ -1,7 +1,10 @@
 package com.mejiandres.recipeapi.models.persistence;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +29,8 @@ public class Recipe {
   private Integer servings;
 
   private String title;
+
+  @OneToMany(mappedBy = "recipe")
+  private Set<RecipeRating> ratings;
 
 }
