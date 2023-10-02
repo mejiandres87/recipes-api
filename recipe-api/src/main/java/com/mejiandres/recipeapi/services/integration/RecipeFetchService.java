@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.mejiandres.recipeapi.models.dto.RecipeDto;
 import com.mejiandres.recipeapi.models.transfer.RecipesQueryResult;
-import com.mejiandres.recipeapi.utils.RecipesDataUtils;
+import com.mejiandres.recipeapi.utils.RecipesDataAdapter;
 
 @Service
 public class RecipeFetchService {
@@ -31,7 +31,8 @@ public class RecipeFetchService {
     RecipesQueryResult result = restTemplateBean.getForObject(url + "/recipes/search?query={query}&apiKey={apiKey}",
         RecipesQueryResult.class,
         uriVariables);
-    List<RecipeDto> recipes = result.getResults().stream().map(r -> RecipesDataUtils.dtoFromTransferRecipe(r)).toList();
+    List<RecipeDto> recipes = result.getResults().stream().map(r -> RecipesDataAdapter.dtoFromTransferRecipe(r))
+        .toList();
     return recipes;
   }
 
