@@ -41,6 +41,6 @@ public class RatingService {
 
   public RatingResponse getRating(Integer id) {
     Optional<RecipeRating> ratingOpt = ratingRepository.findById(id);
-    return ratingOpt.isPresent() ? RatingsDataAdapter.responseFromEntity(ratingOpt.get());
+    return ratingOpt.isPresent() ? RatingsDataAdapter.responseFromEntity(ratingOpt.get()) : null;
   }
 }
