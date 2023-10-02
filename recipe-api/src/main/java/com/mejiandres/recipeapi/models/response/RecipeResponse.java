@@ -1,4 +1,4 @@
-package com.mejiandres.recipeapi.models.transfer;
+package com.mejiandres.recipeapi.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +11,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class Recipe {
+public class RecipeResponse {
 
   private Integer id;
+
   private Integer readyInMinutes;
+
   private String sourceUrl;
-  private Integer servings;
+
   private String image;
+
+  private Integer servings;
+
   private String title;
+
 }

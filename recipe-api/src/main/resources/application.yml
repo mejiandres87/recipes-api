@@ -2,11 +2,16 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
   datasource:
-    url: jdbc:mysql://${MYSQK_HOST:localhost}:3306/recipes_api
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/recipes_api
     username: recipes_app
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+api:
+  recipe:
+    url: https://api.spoonacular.com
+    apiKey: fbc1be1523784cf5a9ef551395585fbe
 
