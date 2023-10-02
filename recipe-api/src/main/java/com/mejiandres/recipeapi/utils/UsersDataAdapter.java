@@ -1,5 +1,8 @@
 package com.mejiandres.recipeapi.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mejiandres.recipeapi.models.dto.UserDto;
 import com.mejiandres.recipeapi.models.persistence.UserEntity;
 import com.mejiandres.recipeapi.models.request.UserRequest;
@@ -11,12 +14,17 @@ public class UsersDataAdapter {
     return UserEntity.builder().id(user.getId())
         .email(user.getEmail())
         .username(user.getUsername())
+        .roles(user.getRoles())
         .password(user.getPassword()).build();
   }
 
   public static UserResponse responseFromEntity(UserEntity user) {
+    List<String> roles = new ArrayList<>();
+    if (user.getRoles() != null && !user.getRoles().isEmpty()) {
+      roles = user.getRoles().stream().map(role -> role.getName().name()).toList();
+    }
     return UserResponse.builder().id(user.getId())
-        .email(user.getEmail())
+        .email(user.getEmail()).roles(roles)
         .username(user.getUsername()).build();
   }
 

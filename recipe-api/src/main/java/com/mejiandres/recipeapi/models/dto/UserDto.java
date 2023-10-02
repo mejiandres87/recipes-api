@@ -1,5 +1,9 @@
 package com.mejiandres.recipeapi.models.dto;
 
+import java.util.Set;
+
+import com.mejiandres.recipeapi.models.persistence.RoleEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,4 +20,5 @@ public class UserDto {
   private String username;
   private String email;
   private String password;
+  private Set<RoleEntity> roles;
 }
