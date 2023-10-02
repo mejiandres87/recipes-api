@@ -24,11 +24,11 @@ public class RecipeRating {
 
   @ManyToOne
   @JoinColumn(name = "user_id")
-  private User user;
+  private UserEntity user;
 
   @ManyToOne
   @JoinColumn(name = "recipe_id")
-  private Recipe recipe;
+  private RecipeEntity recipe;
 
   private Integer rating;
 
