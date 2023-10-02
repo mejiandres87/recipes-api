@@ -14,4 +14,7 @@ api:
   recipe:
     url: https://api.spoonacular.com
     apiKey: fbc1be1523784cf5a9ef551395585fbe
+  security:
+    jwt-secret: ======================RecipeAPISpring===========================
+    jwt-expiration-ms: 86400000
 

@@ -1,7 +1,6 @@
-package com.mejiandres.recipeapi.models.response;
+package com.mejiandres.recipeapi.models.request;
 
-import java.util.List;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,11 +12,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class UserResponse {
+public class LoginRequest {
 
-  private Integer id;
+  @NotBlank
   private String username;
-  private String email;
-  private List<String> roles;
+
+  @NotBlank
+  private String password;
 
 }

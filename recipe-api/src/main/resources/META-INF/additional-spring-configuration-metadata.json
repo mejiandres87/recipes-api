@@ -9,6 +9,16 @@
       "name": "api.recipe.apiKey",
       "type": "java.lang.String",
       "description": "The apiKey to authorize call to 3rd party API"
+    },
+    {
+      "name": "api.security.jwt-secret",
+      "type": "java.lang.String",
+      "description": "The secret to encode and decode JWTs"
+    },
+    {
+      "name": "api.security.jwt-expiration-ms",
+      "type": "java.lang.Integer",
+      "description": "Expiration time for JWTs"
     }
   ]
 }
