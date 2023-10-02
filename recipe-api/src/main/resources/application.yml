@@ -2,7 +2,7 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/recipes_api
