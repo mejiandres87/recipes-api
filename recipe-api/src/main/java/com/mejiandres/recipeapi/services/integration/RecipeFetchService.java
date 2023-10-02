@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.mejiandres.recipeapi.models.dto.RecipeDto;
-import com.mejiandres.recipeapi.models.transfer.RecipesQueryResult;
+import com.mejiandres.recipeapi.models.external.RecipesQueryResult;
 import com.mejiandres.recipeapi.utils.RecipesDataAdapter;
 
 @Service

@@ -1,9 +1,9 @@
 package com.mejiandres.recipeapi.utils;
 
 import com.mejiandres.recipeapi.models.dto.RecipeDto;
+import com.mejiandres.recipeapi.models.external.Recipe;
 import com.mejiandres.recipeapi.models.persistence.RecipeEntity;
 import com.mejiandres.recipeapi.models.response.RecipeResponse;
-import com.mejiandres.recipeapi.models.transfer.Recipe;
 
 public class RecipesDataAdapter {
 
