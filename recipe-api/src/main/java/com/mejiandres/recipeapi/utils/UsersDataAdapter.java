@@ -2,6 +2,7 @@ package com.mejiandres.recipeapi.utils;
 
 import com.mejiandres.recipeapi.models.dto.UserDto;
 import com.mejiandres.recipeapi.models.persistence.UserEntity;
+import com.mejiandres.recipeapi.models.request.UserRequest;
 import com.mejiandres.recipeapi.models.response.UserResponse;
 
 public class UsersDataAdapter {
@@ -17,5 +18,11 @@ public class UsersDataAdapter {
     return UserResponse.builder().id(user.getId())
         .email(user.getEmail())
         .username(user.getUsername()).build();
+  }
+
+  public static UserDto dtoFromRequest(UserRequest user) {
+    return UserDto.builder().email(user.getEmail())
+        .username(user.getUsername())
+        .password(user.getPassword()).build();
   }
 }
