@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mejiandres.recipeapi.models.dto.RecipeDto;
 import com.mejiandres.recipeapi.models.response.RecipeResponse;
 import com.mejiandres.recipeapi.services.RecipeService;
-import com.mejiandres.recipeapi.services.integration.RecipeFetchService;
 
 @RestController
 @RequestMapping("api")
