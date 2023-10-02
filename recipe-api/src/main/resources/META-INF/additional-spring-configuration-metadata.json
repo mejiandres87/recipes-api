@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "api.recipe.url",
+      "type": "java.lang.String",
+      "description": "The URL for the 3rd party recipe API"
+    },
+    {
+      "name": "api.recipe.apiKey",
+      "type": "java.lang.String",
+      "description": "The apiKey to authorize call to 3rd party API"
+    }
+  ]
+}
