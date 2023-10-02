@@ -1,4 +1,4 @@
-package com.mejiandres.recipeapi.models.transfer;
+package com.mejiandres.recipeapi.models.external;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
