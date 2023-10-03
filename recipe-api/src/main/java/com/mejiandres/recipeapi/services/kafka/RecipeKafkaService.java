@@ -3,7 +3,6 @@ package com.mejiandres.recipeapi.services.kafka;
 import java.nio.charset.Charset;
 import java.util.Date;
 
-import org.apache.catalina.connector.Response;
 import org.hibernate.engine.jdbc.ClobProxy;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,7 +17,6 @@ import org.springframework.web.client.RestTemplate;
 import com.mejiandres.recipeapi.models.dto.RecipeDto;
 import com.mejiandres.recipeapi.models.persistence.RecipeClobEntity;
 import com.mejiandres.recipeapi.models.persistence.RecipeEntity;
-import com.mejiandres.recipeapi.models.persistence.repositories.RecipeClobRepository;
 import com.mejiandres.recipeapi.models.persistence.repositories.RecipeRepository;
 import com.mejiandres.recipeapi.utils.RecipesDataAdapter;
 
