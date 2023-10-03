@@ -2,6 +2,7 @@ package com.mejiandres.recipeapi.utils;
 
 import com.mejiandres.recipeapi.models.dto.RecipeDto;
 import com.mejiandres.recipeapi.models.external.Recipe;
+import com.mejiandres.recipeapi.models.external.RecipeDetail;
 import com.mejiandres.recipeapi.models.persistence.RecipeEntity;
 import com.mejiandres.recipeapi.models.response.RecipeResponse;
 
@@ -41,5 +42,14 @@ public class RecipesDataAdapter {
         .sourceUrl(recipe.getSourceUrl())
         .servings(recipe.getServings())
         .title(recipe.getTitle()).build();
+  }
+
+  public static RecipeDto dtoFromRecipeDetail(RecipeDetail recipeDetail) {
+    return RecipeDto.builder().id(recipeDetail.getId())
+        .image(recipeDetail.getImage())
+        .readyInMinutes(recipeDetail.getReadyInMinutes())
+        .sourceUrl(recipeDetail.getSourceUrl())
+        .servings(recipeDetail.getServings())
+        .title(recipeDetail.getTitle()).build();
   }
 }

@@ -37,4 +37,10 @@ public class RecipeService {
     return response;
   }
 
+  public RecipeResponse updateRecipe(Integer recipeId) {
+    RecipeDto recipeDto = recipeFetchService.updateRecipe(recipeId);
+    RecipeEntity recipeEntity = recipeRepository.save(RecipesDataAdapter.entityFromDto(recipeDto));
+    return RecipesDataAdapter.responseFromEntity(recipeEntity);
+  }
+
 }
