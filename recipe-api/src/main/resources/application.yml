@@ -6,17 +6,17 @@ spring:
     show-sql: true
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/recipes_api
-    username: recipes_app
-    password: password
+    username: ${MYSQL_USER:recipes_app}
+    password: ${MYSQL_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   kafka:
-    bootstrap-servers: localhost:9094
+    bootstrap-servers: ${KAFKA_BROKER_HOST:localhost}:9094
     producer:
-      bootstrap-servers: localhost:9094
+      bootstrap-servers: ${KAFKA_BROKER_HOST:localhost}:9094
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      bootstrap-servers: localhost:9094
+      bootstrap-servers: ${KAFKA_BROKER_HOST:localhost}:9094
       group-id: recipe-group-id
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -30,7 +30,7 @@ spring:
 api:
   recipe:
     url: https://api.spoonacular.com
-    apiKey: fbc1be1523784cf5a9ef551395585fbe
+    apiKey: ${SPOONTACULAR_API_KEY:fbc1be1523784cf5a9ef551395585fbe}
     fetch-content: true
   security:
     jwt-secret: ======================RecipeAPISpring===========================

@@ -32,9 +32,12 @@ public class RecipeFetchService {
     RecipesQueryResult result = restTemplateBean.getForObject(url + "/recipes/search?query={query}&apiKey={apiKey}",
         RecipesQueryResult.class,
         uriVariables);
-    List<RecipeDto> recipes = result.getResults().stream().map(r -> RecipesDataAdapter.dtoFromTransferRecipe(r))
-        .toList();
-    return recipes;
+    if (result != null && result.getResults() != null) {
+      List<RecipeDto> recipes = result.getResults().stream().map(r -> RecipesDataAdapter.dtoFromTransferRecipe(r))
+          .toList();
+      return recipes;
+    }
+    return null;
   }
 
   public RecipeDto updateRecipe(int recipeId) {
