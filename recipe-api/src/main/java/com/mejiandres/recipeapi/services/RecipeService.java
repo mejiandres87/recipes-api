@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import com.mejiandres.recipeapi.models.response.RatingResponse;
 import com.mejiandres.recipeapi.models.response.RecipeResponse;
 import com.mejiandres.recipeapi.security.services.UserDetailsImpl;
 import com.mejiandres.recipeapi.services.integration.RecipeFetchService;
+import com.mejiandres.recipeapi.services.kafka.RecipeKafkaService;
 import com.mejiandres.recipeapi.utils.RecipesDataAdapter;
 
 @Service
@@ -29,6 +31,12 @@ public class RecipeService {
 
   @Autowired
   private RatingService ratingService;
+
+  @Autowired
+  private RecipeKafkaService recipeKafkaService;
+
+  @Value("${api.recipe.fetch-content:false}")
+  private boolean shouldFetchContents;
 
   public List<RecipeResponse> fetchAndStoreRecipes(String term) {
     List<RecipeDto> fetchedRecipes = recipeFetchService.fetchRecipes(term);
@@ -48,6 +56,9 @@ public class RecipeService {
 
   public RecipeResponse updateRecipe(Integer recipeId) {
     RecipeDto recipeDto = recipeFetchService.updateRecipe(recipeId);
+    if (shouldFetchContents) {
+      recipeKafkaService.sendToKafkaBroker(recipeDto);
+    }
     RecipeEntity recipeEntity = recipeRepository.save(RecipesDataAdapter.entityFromDto(recipeDto));
     return RecipesDataAdapter.responseFromEntity(recipeEntity);
   }

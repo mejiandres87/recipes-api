@@ -37,7 +37,10 @@ public class RecipesDataAdapter {
   }
 
   public static RecipeResponse responseFromEntity(RecipeEntity recipe) {
-    double ratingAvg = recipe.getRatings().stream().mapToDouble(RecipeRating::getRating).average().orElse(0);
+    double ratingAvg = 0.0;
+    if (recipe.getRatings() != null) {
+      ratingAvg = recipe.getRatings().stream().mapToDouble(RecipeRating::getRating).average().orElse(0);
+    }
     return RecipeResponse.builder().id(recipe.getId())
         .image(recipe.getImage())
         .readyInMinutes(recipe.getReadyInMinutes())

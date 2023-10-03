@@ -19,6 +19,11 @@
       "name": "api.security.jwt-expiration-ms",
       "type": "java.lang.Integer",
       "description": "Expiration time for JWTs"
+    },
+    {
+      "name": "api.recipe.fetch-content",
+      "type": "java.lang.Boolean",
+      "description": "Determines if recipe sourceUrl should be sent to kafka to be fetched and stored"
     }
   ]
 }
