@@ -4,6 +4,7 @@ import com.mejiandres.recipeapi.models.dto.RecipeDto;
 import com.mejiandres.recipeapi.models.external.Recipe;
 import com.mejiandres.recipeapi.models.external.RecipeDetail;
 import com.mejiandres.recipeapi.models.persistence.RecipeEntity;
+import com.mejiandres.recipeapi.models.persistence.RecipeRating;
 import com.mejiandres.recipeapi.models.response.RecipeResponse;
 
 public class RecipesDataAdapter {
@@ -36,11 +37,13 @@ public class RecipesDataAdapter {
   }
 
   public static RecipeResponse responseFromEntity(RecipeEntity recipe) {
+    double ratingAvg = recipe.getRatings().stream().mapToDouble(RecipeRating::getRating).average().orElse(0);
     return RecipeResponse.builder().id(recipe.getId())
         .image(recipe.getImage())
         .readyInMinutes(recipe.getReadyInMinutes())
         .sourceUrl(recipe.getSourceUrl())
         .servings(recipe.getServings())
+        .rating(ratingAvg)
         .title(recipe.getTitle()).build();
   }
 

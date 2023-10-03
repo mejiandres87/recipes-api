@@ -25,4 +25,6 @@ public class RecipeResponse {
 
   private String title;
 
+  private double rating;
+
 }
